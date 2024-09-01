@@ -1,14 +1,15 @@
 package org.example.controller;
 import org.example.model.Manage;
 import org.example.model.User;
+import org.example.model.Cryptocurrency;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 
 public class ControllerA {
-
-  private Manage manage;
+    private ArrayList<Cryptocurrency> availableCryptocurrencies;
+    private Cryptocurrency cryptocurrencies;
+    private Manage manage;
 
     public ControllerA() {
         this.manage = new Manage();
@@ -30,6 +31,7 @@ public class ControllerA {
             System.out.println("Login fallido. Verifica tus credenciales.");
         }
     }
+
 
 
 

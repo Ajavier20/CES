@@ -10,7 +10,8 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private DigitalWallet  digitalWallet;
+    private DigitalWallet digitalWallet;
+
 
 
     public User(String name, String email, String password) {
@@ -18,6 +19,11 @@ public class User {
         this.name= name;
         this.email=email;
         this.password=password;
+        this.digitalWallet= new DigitalWallet();
+    }
+
+    public DigitalWallet getDigitalWallet() {
+        return digitalWallet;
     }
 
     public String getId() {
@@ -44,22 +50,32 @@ public class User {
 
     public void Options(){
         Scanner scanner = new Scanner(System.in);
-        String generalMessage= "Welcome to "+this.name+"\n***You ID i"+this.id+"\n1.Exchange \n2.Deposit \n3.Buy\n4.Exit";
+        String generalMessage= "Welcome to "+this.name+"\n***You ID i"+this.id+"\n1.See Balance\n2.Exchange \n3.Deposit \n4.Buy\n5.Exit";
         String option ="99";
-        while (!option.equals("4")){
+        while (!option.equals("5")){
             System.out.println(generalMessage);
             System.out.println("Enter an option: ");
             option =scanner.nextLine();
             if(option.equals("1")){
-                System.out.println("metodo para intercambiar");
+                System.out.println("metodo para ver tu balance");
+                System.out.println(digitalWallet.getMoneyBalance());
 
             }else if(option.equals("2")){
-                System.out.println("metodo para depostitar");
+                System.out.println("metodo para intercambiar");
 
             }else if(option.equals("3")){
-                System.out.println("metodo para comaprr");
+                System.out.println("Enter the amount of money you want to deposit");
+                double money= scanner.nextDouble();
+                digitalWallet.depositMoney(money);
+
 
             }else if(option.equals("4")){
+                CryptoMarket cryptoMarket = new CryptoMarket();
+                System.out.println("metodo para comaprr");
+                cryptoMarket.AvailableCrypto(cryptoMarket.getAvailableCryptocurrencies());
+
+
+            }else if(option.equals("5")){
             System.out.println("Logging out!");
 
             }else {

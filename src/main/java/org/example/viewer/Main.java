@@ -11,6 +11,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         ControllerA ctrlA= new ControllerA();
+
         String generalMessage= "Welcome to Crypto Exchange System! \n1.Exit \n2.Registration \n3.Login";
         String option ="99";
             while (!option.equals("1")){
